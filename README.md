@@ -132,3 +132,11 @@ The application should integrate with a backend API to fetch product data.
 - **E-commerce Features**
     - Add user authentication.
     - Implement a checkout process.
+
+
+
+-----
+
+## Test Timesheet
+
+7:30 - 10:00
