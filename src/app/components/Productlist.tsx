@@ -1,4 +1,5 @@
 import { Product } from "@/network/api";
+import { ProductCard } from '@/app/components/ProductCard'
 
 type ProductListProps = {
     list: Product[],
@@ -10,16 +11,8 @@ export function ProductList({ list, error }: ProductListProps) {
     }
     return (
         <div>
-            {list.map(a => {
-                console.log(a);
-                return <div key={a.id}>
-                    <span >{a.id}</span>
-                    <span >{a.title}</span>
-                    <span >{a.description}</span>
-                    <span >{a.category}</span>
-                    <span >{a.image}</span>
-                    <span >{a.rating.rate}</span>
-                </div>
+            {list.map(product => {
+                return <ProductCard key={product.id} href={`/products/${product.id}`} product={product} />
             })}
         </div>
     )
