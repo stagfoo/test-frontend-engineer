@@ -10,7 +10,7 @@ export function ProductList({ list, error }: ProductListProps) {
         return <div>Error</div>
     }
     return (
-        <div>
+        <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-2">
             {list.map(product => {
                 return <ProductCard key={product.id} href={`/products/${product.id}`} product={product} />
             })}
