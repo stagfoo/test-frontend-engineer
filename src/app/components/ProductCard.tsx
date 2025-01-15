@@ -1,5 +1,4 @@
 import { Product } from "@/network/api"
-import { StarIcon } from '@heroicons/react/24/solid'
 import { Rating } from "./Rating"
 
 type ProductCardProps = {
@@ -16,7 +15,7 @@ export function ProductCard({
 
 <div className="product-card max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between	">
     <div>
-    <a href={href} className="bg-white flex items-center justify-center p-8 rounded-t-lg">
+    <a href={href} className="bg-white flex items-center justify-center md:p-8 rounded-t-lg">
         <img className="rounded-t-lg object-contain h-52" src={product.image} alt="" />
     </a>
     <div className="p-5">
