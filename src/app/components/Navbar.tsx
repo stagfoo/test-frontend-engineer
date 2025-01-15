@@ -18,6 +18,7 @@ export function Navbar() {
     const mobileHiddenClass = isOpen ? '' : 'animated-hidden'
     const carHiddenClass = isCartOpen ? '' : 'hidden'
     const items = useStore(state => state.cart)
+    const removeProductFromCart = useStore(state => state.removeProductFromCart)
 
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900 relative">
@@ -47,9 +48,7 @@ export function Navbar() {
                                 <ShoppingBagIcon className="size-6 hidden sm:block text-white" />
                                 <span className="sm:hidden block">Cart</span>
                             </button>
-                            <div className={`absolute top-8 -left-24 overflow-scroll ${carHiddenClass} flex flex-1 w-48 `}>
-                                <Cart items={items} />
-                            </div>
+                      
                         </li>
                         <li>
                             <NavItem href="/profile">
@@ -59,8 +58,11 @@ export function Navbar() {
                         </li>
                     </ul>
                 </div>
+                
             </div>
-
+            <div className={`fixed top-0 right-0 ${carHiddenClass} flex flex-1 w-64 h-screen`}>
+                                <Cart items={items} removeProductFromCart={removeProductFromCart} />
+                            </div>
         </nav>
 
     )
