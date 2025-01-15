@@ -19,3 +19,25 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+nav > * {
+  transition: all 0.3s ease-in-out;
+}
+#navbar-default {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#navbar-default.animated-hidden {
+  transform: translateY(-300px);
+  height: 0px;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  #navbar-default.animated-hidden {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
