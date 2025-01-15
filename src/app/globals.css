@@ -39,5 +39,6 @@ nav > * {
   #navbar-default.animated-hidden {
     transform: translateY(0);
     opacity: 1;
+    height: auto;
   }
 }
