@@ -139,4 +139,6 @@ The application should integrate with a backend API to fetch product data.
 
 ## Test Timesheet
 
-7:30 - 10:00
+7:30 - 10:00pm
+9:30 - 10:00am
+9:00am - 10am
