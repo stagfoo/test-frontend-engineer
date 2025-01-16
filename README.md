@@ -1,16 +1,23 @@
-# Readme
+# Shop Demo 🛍️
 
-## How to run
-open your terminal and run the command:
+a simple shop using Fakestore api
 
-```
-npm install
-npm run dev
-```
+[![Demo](https://img.shields.io/badge/Demo-Live%20Site-blue)](https://test-frontend-engineer-xi.vercel.app/products)
 
-The default port is 3000 and it should open your web browser by default.
+## 🚀 Quick Start
 
-## thought process and any architectural decisions
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser - the app will be running at `http://localhost:3000`
+
+## 🏗️ Architecture & Technical Decisions
 
 I started with the network first because I hadn't used the fakestore api before and I wanted to get that out of the way before i started.
 I wanted to make sure the network would fail nicely so I included try and catch and I returned custom throw errors to prevent leaking of information from the api error return. 
@@ -23,6 +30,14 @@ to use the user endpoint.
 I moved to using a global state pattern using `zustand` and `immer` to create an immutable state, this allowed me to do things like opening the cart when a new product for better UX.
 
 
-## Demo
+## 🔧 Tech Stack
 
-https://test-frontend-engineer-xi.vercel.app/products
+- React
+- Zustand (State Management)
+- Immer (Immutable State Updates)
+- FakeStore API
+- Vercel (Deployment)
+
+## 🌐 Live Demo
+
+Experience the application live at [https://test-frontend-engineer-xi.vercel.app/products](https://test-frontend-engineer-xi.vercel.app/products)
