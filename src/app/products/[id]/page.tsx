@@ -5,7 +5,6 @@ import { use } from "react";
 import useStore from "@/app/store";
 import { getSingleProduct, Product } from "@/network/api";
 import { ErrorBlock } from "@/app/components/Error";
-import Image from "next/image";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -56,7 +55,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     <main className="flex lg:flex-row flex-col-reverse">
       <section className="lg:basis-1/3 basis-1/2 bg-white lg:p-16 p-8 m-8 rounded-lg">
         <div className="img-container">
-          <Image
+          <img
             className="rounded-t-lg object-cover"
             src={product.image}
             alt={product.title}

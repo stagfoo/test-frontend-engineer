@@ -17,6 +17,8 @@ export function ProductCard({ product, href }: ProductCardProps) {
           className="bg-white flex items-center justify-center md:p-8 rounded-t-lg"
         >
           <Image
+            width={300}
+            height={300}
             className="rounded-t-lg object-contain h-52"
             src={product.image}
             alt={product.title}
