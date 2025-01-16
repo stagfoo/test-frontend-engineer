@@ -5,6 +5,7 @@ import { create } from 'zustand'
 
 // Define the store state type
 interface StoreState {
+  isCartOpen: boolean;
   cart: {
     [x: string]: {
       product: Product,
@@ -17,7 +18,7 @@ interface StoreState {
 interface StoreActions {
   addProductToCart: (product: Product) => void
   removeProductFromCart: (id: number) => void;
-  reset: () => void
+  setIsCartOpen: (isOpen: boolean) => void;
 }
 
 // Combine state and actions for the complete store type
@@ -25,7 +26,8 @@ type Store = StoreState & StoreActions
 
 // Define the initial state
 const initialState: StoreState = {
-  cart: {}
+  cart: {},
+  isCartOpen: false,
 }
 
 // Create store with Immer integration
@@ -33,10 +35,15 @@ const useStore = create<Store>()((set) => ({
   ...initialState,
 
   // Actions
+  //By adding the Cart logic here, I can show the cart when added in a product to the cart
+  setIsCartOpen: (isOpen: boolean) => set(produce((state: StoreState) => {
+    state.isCartOpen = isOpen
+  })),
+
   addProductToCart: (product: Product) =>
     set(
+      //Using immer ensures the state is immutable 
       produce((state: StoreState) => {
-        //This is because the null check
         if(state.cart[product.id]){
           state.cart[product.id].qty++;
         } else {
@@ -51,16 +58,15 @@ const useStore = create<Store>()((set) => ({
       set(
         produce((state: StoreState) => {
           if(state.cart[id]){
+            //Remove one qty
             state.cart[id].qty--
+            //remove the item because we can't have 0 or negitive qty
             if(state.cart[id].qty <= 0){
               delete state.cart[id]
             }
           }
         })
       ),
-
-  // Reset store to initial state
-  reset: () => set(initialState)
 }))
 
 export default useStore
