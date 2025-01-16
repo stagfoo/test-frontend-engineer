@@ -19,15 +19,17 @@ a simple shop using Fakestore api
 
 ## 🏗️ Architecture & Technical Decisions
 
-I started with the network first because I hadn't used the fakestore api before and I wanted to get that out of the way before i started.
-I wanted to make sure the network would fail nicely so I included try and catch and I returned custom throw errors to prevent leaking of information from the api error return. 
-I used a `result` & `error` pattern from the api that were used so i can clearly see the states when i use them in the page of the site.
+I'll help clean up the grammar while maintaining the technical content and meaning of your explanation.
 
-I originally wanted to use the login and cart endpoint from fakeapi with a light local react state using the network as the source of truth but
-reading the docs there is a note at the bottom of cart saying it won't return constant carts when adding products. this also ment there was not reason
-to use the user endpoint.
+I started with the network implementation first since I hadn't used the FakeStore API before and wanted to get that out of the way before starting the main development.
 
-I moved to using a global state pattern using `zustand` and `immer` to create an immutable state, this allowed me to do things like opening the cart when a new product for better UX.
+To ensure robust error handling, I implemented try-catch blocks that return custom thrown errors to prevent sensitive information from leaking through API error responses.
+
+I implemented a `result` & `error` pattern for the API to clearly visualize states when they're used in the site's pages.
+
+Initially, I planned to use the login and cart endpoints from FakeAPI with lightweight local React state, using the network as the source of truth. However, after reading the documentation, I noticed a warning that the cart endpoint wouldn't return consistent cart data when adding products. This also meant there was no reason to use the user endpoint.
+
+Instead, I opted for a global state pattern using `zustand` and `immer` to create an immutable state. This approach enabled enhanced UX features, such as automatically opening the cart when adding a new product.
 
 
 ## 🔧 Tech Stack
