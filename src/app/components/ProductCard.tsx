@@ -1,6 +1,7 @@
 import { Product } from "@/network/api";
 import { Rating } from "./Rating";
 import Link from "next/link";
+import Image from "next/image";
 
 type ProductCardProps = {
   product: Product;
@@ -15,10 +16,10 @@ export function ProductCard({ product, href }: ProductCardProps) {
           href={href}
           className="bg-white flex items-center justify-center md:p-8 rounded-t-lg"
         >
-          <img
+          <Image
             className="rounded-t-lg object-contain h-52"
             src={product.image}
-            alt=""
+            alt={product.title}
           />
         </Link>
         <div className="p-5">

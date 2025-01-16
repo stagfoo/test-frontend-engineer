@@ -1,6 +1,5 @@
 import { Product } from "@/network/api";
 import { ProductCard } from "@/app/components/ProductCard";
-import { FaceFrownIcon } from "@heroicons/react/24/outline";
 import { ErrorBlock } from "@/app/components/Error";
 
 type ProductListProps = {

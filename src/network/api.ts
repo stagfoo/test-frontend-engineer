@@ -22,10 +22,11 @@ export async function getProducts(limit: number): Promise<GetProducts> {
             result: await result.json(),
             error: null
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
         return {
             result: [],
-            error: err
+            error: new Error('Failed to getProducts')
         }
     }
 }
@@ -41,35 +42,11 @@ export async function getSingleProduct(id: string): Promise<GetSingleProducts> {
             result: await result.json(),
             error: null
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
         return {
             result: null,
-            error: err
+            error: new Error('Failed to getSingleProduct')
         }
-    }
-}
-type GetUserCart = {
-
-}
-
-export async function getUserCart(id: string): Promise<GetUserCart> {
-    try {
-        const result = await fetch(`https://fakestoreapi.com/carts/user/${id}`)
-        return result.json()
-    } catch {
-        throw new Error('Sorry! there is an issue getting that product at this time')
-    }
-}
-
-type GetUserResponse = {
-
-}
-
-export async function getUser(id: string): Promise<GetUserResponse> {
-    try {
-        const result = await fetch(`https://fakestoreapi.com/users/${id}`)
-        return result.json()
-    } catch {
-        throw new Error('Sorry! there is an issue getting that product at this time')
     }
 }

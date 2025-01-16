@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import { use } from "react";
 import useStore from "@/app/store";
-import { getSingleProduct } from "@/network/api";
+import { getSingleProduct, Product } from "@/network/api";
 import { ErrorBlock } from "@/app/components/Error";
+import Image from "next/image";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const addToCard = useStore((state) => state.addProductToCart);
@@ -24,6 +25,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
         } else {
           setProduct(data.result);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError(true);
       } finally {
@@ -54,7 +56,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     <main className="flex lg:flex-row flex-col-reverse">
       <section className="lg:basis-1/3 basis-1/2 bg-white lg:p-16 p-8 m-8 rounded-lg">
         <div className="img-container">
-          <img
+          <Image
             className="rounded-t-lg object-cover"
             src={product.image}
             alt={product.title}

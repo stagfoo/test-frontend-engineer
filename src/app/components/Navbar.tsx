@@ -4,7 +4,6 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ShoppingBagIcon,
-  UserCircleIcon,
   Bars3Icon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
