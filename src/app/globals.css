@@ -20,29 +20,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-nav > * {
-  transition: all 0.3s ease-in-out;
-}
-#navbar-default {
-  transition: all 0.3s ease-in-out;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-#navbar-default.animated-hidden {
-  transform: translateY(-300px);
-  height: 0px;
-  opacity: 0;
-}
-
-@media (min-width: 768px) {
-  #navbar-default.animated-hidden {
-    transform: translateY(0);
-    opacity: 1;
-    height: auto;
-  }
-}
-
 .border-b-1 {
   border-bottom-width: 1px;
+}
+.border-t-1 {
+  border-top-width: 1px;
 }
