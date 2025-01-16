@@ -1,7 +1,7 @@
 import { getProducts } from "@/network/api";
 
 
-import { ProductList } from '@/app/components/Productlist'
+import { ProductList } from '@/app/components/ProductList'
 
 
 export default async function Page() {
